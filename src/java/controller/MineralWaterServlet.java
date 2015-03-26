@@ -57,7 +57,7 @@ public class MineralWaterServlet extends HttpServlet{
             } else {
                 MineralWater water = db.findById(foo);
                 System.out.println(water);
-                request.setAttribute("mineralWater", water.toForm());
+                request.setAttribute("water", water.toForm());
                 request.getRequestDispatcher("mineralWater.jsp").forward(request, response);
             }
 
@@ -91,7 +91,7 @@ public class MineralWaterServlet extends HttpServlet{
         } else {
             logger.error("MineralWaterServlet.doPost(): save failed");
         }
-        request.setAttribute("mineralWater", form);
+        request.setAttribute("water", form);
 
         request.setAttribute("formError", errorList);
 

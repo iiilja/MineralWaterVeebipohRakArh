@@ -1,0 +1,27 @@
+create database t112818_MineralWater;
+CREATE TABLE water
+(
+  id serial NOT NULL,
+  name character varying(10),
+  mineralisation integer,
+  content character varying(255),
+  CONSTRAINT pk_water_id PRIMARY KEY (id)
+);
+insert into water(name,mineralisation,content)
+ values('borjomi',1500,'Mineral composition mg/dm3 
+
+Hydrocarbons 3 500-5 000 
+Chlorides, 250-500 
+Calcium 100 
+Sodium + potassium 1 200-2 000 
+Mineralization 5,0-7,5 
+Carbon dioxide,% 0.34-0.42 ');
+insert into water(name,mineralisation,content)
+ values('essentuki',12000,'Hydrocarbonates     6000-8000 
+Sulfates               < 50
+Chlorides              2200-4200
+Calcium                < 200
+Magnesium              < 300
+Sodium + Potassium     3200-6000
+Silicic acid           10-80
+Mineralization, g/dm3  9.2-12.7');

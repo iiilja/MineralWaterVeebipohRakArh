@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : Mar 25, 2015, 10:28:36 PM
-    Author     : ilja
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

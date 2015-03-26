@@ -27,10 +27,10 @@ public class MineralWaterDAO {
         }
 
         String serverName = "imbi.ld.ttu.ee";
-        String mydatabase = "t112818_MineralWater";
+        String mydatabase = "t112818_mineralwater";
         String url = "jdbc:postgresql://" + serverName + "/" + mydatabase;
         String username = "t112818";
-        String password = "94haTusj";
+        String password = "KrCGbxXP";
         /*String serverName = "hektor4.ttu.ee";
          String mydatabase = "t112818_MineralWater";
          String url = "jdbc:postgresql://" + serverName + "/" + mydatabase;

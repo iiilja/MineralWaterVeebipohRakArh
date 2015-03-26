@@ -62,13 +62,5 @@ Mineral Water list:
 </TABLE>
 </form>
 </div>
-
-
-
-
-
-
-
-
 </body>
 </html>
