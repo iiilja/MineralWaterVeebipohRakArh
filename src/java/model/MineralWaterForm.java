@@ -5,26 +5,29 @@
  */
 package model;
 
-public class MineralWater {
-    private int id;
+/**
+ *
+ * @author ilja
+ */
+public class MineralWaterForm {
+
+    private String id;
     private String name;
-    private int mineralisation;
+    private String mineralisation;
     private String content;
 
-    public MineralWater(int id, String name, int mineralisation, String content) {
+    public MineralWaterForm(String id, String name, String mineralisation, String content) {
         this.id = id;
         this.name = name;
         this.mineralisation = mineralisation;
         this.content = content;
     }
-    
-    
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,11 +39,11 @@ public class MineralWater {
         this.name = name;
     }
 
-    public int getMineralisation() {
+    public String getMineralisation() {
         return mineralisation;
     }
 
-    public void setMineralisation(int mineralisation) {
+    public void setMineralisation(String mineralisation) {
         this.mineralisation = mineralisation;
     }
 
@@ -52,7 +55,7 @@ public class MineralWater {
         this.content = content;
     }
     
-    public MineralWaterForm toForm(){
-        return new MineralWaterForm(id+"", name, mineralisation+"", content);
+    public MineralWater toWater(){
+        return new MineralWater(Integer.parseInt(id), name, Integer.parseInt(mineralisation), content);
     }
 }

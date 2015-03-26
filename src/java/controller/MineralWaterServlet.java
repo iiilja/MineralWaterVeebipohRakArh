@@ -14,12 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.MineralWater;
+import model.MineralWaterForm;
+import org.apache.log4j.Logger;
 
 public class MineralWaterServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
     private MineralWaterDAO db = new MineralWaterDAO();
-    Logger logger = Logger.getLogger("controller.ShirtServlet");
+    Logger logger = Logger.getLogger("controller.MineralWaterServlet");
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -34,7 +36,7 @@ public class MineralWaterServlet extends HttpServlet{
      * response)
      */
     public void init() {
-        logger.error("CarServlet.init(): mind loodi");
+        logger.error("MineralWaterServlet.init(): mind loodi");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,12 +47,12 @@ public class MineralWaterServlet extends HttpServlet{
             try {
                 foo = Integer.parseInt(id);
             } catch (NumberFormatException e) {
-                //logger.error("CarServlet.doGet(): wrong data: "+ id);
+                //logger.error("MineralWaterServlet.doGet(): wrong data: "+ id);
 
             }
 
             if (db.findById(foo).getId() == 0) {
-                logger.error("CarServlet.doGet(): wrong id: " + id);
+                logger.error("MineralWaterServlet.doGet(): wrong id: " + id);
                 response.sendRedirect("error.jsp");
             } else {
                 MineralWater water = db.findById(foo);
@@ -61,7 +63,7 @@ public class MineralWaterServlet extends HttpServlet{
 
         } else {
             MineralWater[] water = db.findAll();
-            request.setAttribute("shirt", water);
+            request.setAttribute("water", water);
             request.getRequestDispatcher("mineralWaterAll.jsp").forward(request, response);
 
         }
@@ -82,15 +84,13 @@ public class MineralWaterServlet extends HttpServlet{
         Map<String, String> errorList = new HashMap<>();
         errorList = validate(id, name, mineralisation);
 
-        ShirtForm form = new ShirtForm(id, cost, size, desc);
+        MineralWaterForm form = new MineralWaterForm(id, name, mineralisation, content);
 
         if (errorList.isEmpty()) {
-            db.update(form.toShirt());
+            db.update(form.toWater());
         } else {
-            logger.error("ShirtServlet.doPost(): save failed");
+            logger.error("MineralWaterServlet.doPost(): save failed");
         }
-
-        //request.setAttribute("car", db.findById(Integer.parseInt(id)));
         request.setAttribute("mineralWater", form);
 
         request.setAttribute("formError", errorList);
